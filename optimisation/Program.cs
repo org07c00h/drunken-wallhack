@@ -6,7 +6,12 @@ namespace optimisation
 	{
 		public static void Main (string[] args)
 		{
-			Console.WriteLine ("Hello World!");
+			double a = 1;
+			double b = 2;
+			RProp.FindMin ();
+			Console.WriteLine ("Hello World!" + a);
 		}
+
+
 	}
 }
