@@ -6,10 +6,10 @@ namespace optimisation
 	{
 		public static void Main (string[] args)
 		{
-			double a = 1;
-			double b = 2;
-			RProp.FindMin ();
-			Console.WriteLine ("Hello World!" + a);
+			//Vector2 x = FletcherReeves.FindMin (new Vector2 (0, -5), 1e-7);
+			//Console.WriteLine ("({0}; {1})", x.X, x.Y);
+			//RProp.FindMin ();
+			Armjo.Solve (new Vector2 (5, -5), 1e-7);
 		}
 
 

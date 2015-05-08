@@ -37,6 +37,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rosenbrock.cs" />
     <Compile Include="RProp.cs" />
+    <Compile Include="FletcherReeves.cs" />
+    <Compile Include="Newton.cs" />
+    <Compile Include="Armjo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
