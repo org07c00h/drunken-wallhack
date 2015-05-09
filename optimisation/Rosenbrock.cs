@@ -3,9 +3,7 @@
 namespace optimisation
 {
 
-	// <summary>
-	// Обычная структура с векторными операциями
-	// </summary>
+	// Структура двухмерного вектора с базовыми операциями 
 	public struct Vector2
 	{
 		private double[] p_;
@@ -38,22 +36,30 @@ namespace optimisation
 
 		public static Vector2 operator +(Vector2 v1, Vector2 v2) 
 		{
-			return new Vector2 (v1.X + v2.X, v1.X + v2.X);
+			return new Vector2 (v1.X + v2.X, v1.Y + v2.Y);
 		}
 
 		public static Vector2 operator -(Vector2 v1, Vector2 v2) 
 		{
-			return new Vector2 (v1.X - v2.X, v1.X - v2.X);
+			return new Vector2 (v1.X - v2.X, v1.Y - v2.Y);
 		}
 
+		//Умножение на число
 		public static Vector2 operator *(double a, Vector2 v) 
 		{
 			return new Vector2 (a * v.X, a * v.Y);
 		}
 
+		//Скалярное произведение
 		public static double operator *(Vector2 v1, Vector2 v2)
 		{
 			return v1.X * v2.X + v1.Y * v2.Y;
+		}
+
+		//Умножение на двухмерную матрицу
+		public static Vector2 operator *(double[,] m, Vector2 v)
+		{
+			return new Vector2 (m[0, 0] * v.X + m[0,1] * v.Y, m[1, 0] * v.X + m[1,1] * v.Y);
 		}
 
 
@@ -98,6 +104,7 @@ namespace optimisation
 			return new Vector2 (2 * (200 * p.X * p.X * p.X  - 200 * p.X * p.Y + p.X  - 1), 200 * p.Y - 200 * p.X * p.X);
 		}
 
+		//Поиск минимума по направлению методом золотого сечения
 		public static double GoldenSearch(Vector2 x0, Vector2 direction)
 		{
 			double a = 0;
@@ -107,9 +114,8 @@ namespace optimisation
 			const double e = 1e-8;
 			double y1 = F (x0 + x1 * direction);
 			double y2 = F (x0 + x2 * direction);
-			int i = 0;
 			while ((b-a)/2 > e) {
-				i++;
+
 				if (y1 > y2)
 				{
 					a = x1;
@@ -128,7 +134,6 @@ namespace optimisation
 				}
 
 			}
-			Console.WriteLine (i);
 			return (a + b) / 2;
 		}
 	}

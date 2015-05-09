@@ -7,26 +7,30 @@ namespace optimisation
 		public static Vector2 FindMin(Vector2 x, double EPS)
 		{
 			int i = 0;
-			Vector2 d = -1 * Rosenbrock.Gradient (x);
 			double alpha;
+			Vector2 grad = Rosenbrock.Gradient (x);
+			Vector2 d = -1 * Rosenbrock.Gradient (x);
+			double prevGradSquare;
+
 			do {
+				i++;
+				prevGradSquare = grad.Norm * grad.Norm;
+
 				alpha = Rosenbrock.GoldenSearch(x, d);
+				x += alpha * d;
+				grad = Rosenbrock.Gradient(x);
+
 				if(i % 2 == 0)
 				{
-					x = x + alpha * d;
-					Vector2 grad = Rosenbrock.Gradient(x);
-					double beta = (grad * grad) / (d * d);
-					d = beta * d - grad;
-
+					d = -1 * grad;
 				}
 				else
 				{
-					x = x + alpha * d;
-					d = -1 * Rosenbrock.Gradient(x);
+					double beta = grad.Norm * grad.Norm / prevGradSquare;
+					d = beta * d - grad;
 				}
 
 
-				i++;
 			} while(d.Norm > EPS);
 
 			return x;
