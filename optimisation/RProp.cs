@@ -16,9 +16,9 @@ namespace optimisation
 			Vector2 df;
 			Vector2 dfPrev = new Vector2 (0, 0);
 
-			int k = 0;
+
 			do {
-				k++;
+
 				df = Rosenbrock.Gradient(point);
 				for(int i = 0; i < 2; i++)
 				{
@@ -43,7 +43,7 @@ namespace optimisation
 			} while (df.Norm > 1e-7);
 
 
-			Console.WriteLine (k);
+
 			return point;
 		}
 

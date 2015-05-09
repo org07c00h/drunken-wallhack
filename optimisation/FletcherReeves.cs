@@ -32,7 +32,7 @@ namespace optimisation
 
 
 			} while(d.Norm > EPS);
-
+			Console.WriteLine ("Iterations:\t{0}",i);
 			return x;
 		}
 	}

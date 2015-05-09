@@ -24,7 +24,6 @@ namespace optimisation
 			double[,] H;
 
 			Vector2 grad;
-
 			do
 			{
 				p0 = p.Copy();
