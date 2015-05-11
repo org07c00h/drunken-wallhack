@@ -20,7 +20,9 @@ namespace optimisation
 
 			Vector2[] point_array = { new Vector2 (5, -5), new Vector2 (0, 5), new Vector2 (10, 10), new Vector2 (20, 50) };
 
+			//Armjo.FindMin (point_array [3].Copy (), 1e-7);
 			for (int i = 0; i < point_array.Length; i++) {
+
 				Console.WriteLine ("Armjo");
 				t.Start ();
 				Vector2 x = Armjo.FindMin (point_array [i].Copy (), 1e-7);
