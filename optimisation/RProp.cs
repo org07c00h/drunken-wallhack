@@ -5,7 +5,7 @@ namespace optimisation
 	public static class RProp
 	{
 		private const double deltaMax_ = 50;
-		private const double deltaMin_ = 0;
+		private const double deltaMin_ = 1e-14;
 		private const double etaMinus_ = 0.6;
 		private const double etaPlus_ = 1.2;
 
@@ -36,13 +36,14 @@ namespace optimisation
 					}
 					else
 					{
+
 						point[i] -= Math.Sign(df[i]) * delta[i];
 						dfPrev[i] = df[i];
 					}
 				}
 			} while (df.Norm > 1e-7);
 
-
+			Console.WriteLine ("Iterations:\t{0}",k);
 
 			return point;
 		}

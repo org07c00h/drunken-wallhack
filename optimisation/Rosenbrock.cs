@@ -114,6 +114,7 @@ namespace optimisation
 			const double e = 1e-8;
 			double y1 = F (x0 + x1 * direction);
 			double y2 = F (x0 + x2 * direction);
+
 			while ((b-a)/2 > e) {
 
 				if (y1 > y2)
@@ -134,6 +135,7 @@ namespace optimisation
 				}
 
 			}
+
 			return (a + b) / 2;
 		}
 	}

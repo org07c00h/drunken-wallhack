@@ -6,7 +6,7 @@ namespace optimisation
 	{
 		private const double delta1 = 0.2;
 		private const double delta2 = 0.8;
-		private const double alphaMax = 2;
+		private const double alphaMax = 4;
 
 		public static Vector2 FindMin(Vector2 x0, double eps)
 		{
@@ -17,7 +17,7 @@ namespace optimisation
 			Vector2 x;
 			do {
 				//Устанавливаем максимальное значение alpha
-				alpha = 2 * alphaMax;
+				alpha = alphaMax;
 				//Вычисляем градиент в x_k
 				grad = Rosenbrock.Gradient (x0);
 				//Проверяем условие Армихо
