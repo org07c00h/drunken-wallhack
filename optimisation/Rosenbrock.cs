@@ -108,7 +108,7 @@ namespace optimisation
 		public static double GoldenSearch(Vector2 x0, Vector2 direction)
 		{
 			double a = 0;
-			double b = 1e5;
+			double b = 10;
 			double x1 = (3 - Math.Sqrt(5))*(b - a) / 2 + a;
 			double x2 = (Math.Sqrt(5) - 1) * (b - a) / 2 + a;
 			const double e = 1e-8;

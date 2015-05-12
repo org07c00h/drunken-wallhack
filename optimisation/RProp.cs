@@ -6,8 +6,8 @@ namespace optimisation
 	{
 		private const double deltaMax_ = 50;
 		private const double deltaMin_ = 0;
-		private const double etaMinus_ = 0.5;
-		private const double etaPlus_ = 1.5;
+		private const double etaMinus_ = 0.6;
+		private const double etaPlus_ = 1.2;
 
 		public static Vector2 FindMin(Vector2 point, double EPS)
 		{
@@ -16,9 +16,9 @@ namespace optimisation
 			Vector2 df;
 			Vector2 dfPrev = new Vector2 (0, 0);
 
-
+			int k = 0;
 			do {
-
+				k++;
 				df = Rosenbrock.Gradient(point);
 				for(int i = 0; i < 2; i++)
 				{

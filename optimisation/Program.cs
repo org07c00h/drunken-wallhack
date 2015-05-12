@@ -8,7 +8,7 @@ namespace optimisation
 		{
 			//Vector2 x = FletcherReeves.FindMin (new Vector2 (0, -5), 1e-7);
 			//Console.WriteLine ("({0}; {1})", x.X, x.Y);
-
+			//RProp.FindMin (new Vector2 (20, 50), 1e-7);
 			//FletcherReeves.FindMin (new Vector2 (20, 50), 1e-7);
 			//Armjo.Solve (new Vector2 (20, 50), 1e-7);
 			/*double[,] m = { { 1, 1 }, { 2, 2 } };
@@ -23,9 +23,9 @@ namespace optimisation
 			//Armjo.FindMin (point_array [3].Copy (), 1e-7);
 			for (int i = 0; i < point_array.Length; i++) {
 
-				Console.WriteLine ("Armjo");
+				Console.WriteLine ("FletcherReeves");
 				t.Start ();
-				Vector2 x = Armjo.FindMin (point_array [i].Copy (), 1e-7);
+				Vector2 x = FletcherReeves.FindMin (point_array [i].Copy (), 1e-7);
 				t.Stop ();
 				Console.WriteLine ("Point:\t ({0}, {1})", point_array [i].X, point_array [i].Y);
 				Console.WriteLine ("Min:\t ({0}, {1})", x.X, x.Y);
